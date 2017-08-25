@@ -1,5 +1,5 @@
 // =========================
-// NESTING 
+// NESTING
 // =========================
 
 // === PROBLEM 1 ===========
@@ -37,7 +37,20 @@ var employees = [{
 //  3. Return the updated employee array.
 
 // Code here
+function employeeUpdater(people) {
+  for(i =0; i< people.length; i++) {
+    if(people[i].firstName === 'Theo') {
+      people.splice(i,1);
+    }
+    else if(people[i].firstName === 'Lorie') {
+      people[i].department = 'HR';
+    }
+  }
+  return people;
 
+}
+
+employeeUpdater(employees);
 
 
 
@@ -47,7 +60,7 @@ var employees = [{
 // === PROBLEM 2 ==========
 
 
-// The array below represents IDs tied to reported workplace accidents. An employee accidentally entered in duplicates to array, making it look as though there are more accidents this year than there actually are. 
+// The array below represents IDs tied to reported workplace accidents. An employee accidentally entered in duplicates to array, making it look as though there are more accidents this year than there actually are.
 // 1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the workplaceAccidents array.
 // 2. Use nested for loops to check for duplicate numbers, and then remove the duplicates from the array.
 // 3. Return the updated array.
@@ -55,11 +68,33 @@ var employees = [{
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 // Code here
+//with two loops
+
+function removeDuplicates(arr) {
+  var newArr = [];
+  for(var i=0; i< arr.length; i++) {
+    if(newArr.indexOf(arr[i]) === -1) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+//
+// removeDuplicates(workplaceAccidents);
 
 
-
-
-
+// function removeDuplicates(arr) {
+//   for(var i = arr.length-1; i>; i++) {
+//     while(arr.indexOf(arr[i])
+//     for(var j = i+1; j<arr.length; j++) {
+//       if(arr[i] === arr[j]) {
+//         arr.splice(j,1)
+//       }
+//     }
+//   }
+//   return arr;
+// }
+//
 
 
 
@@ -78,14 +113,14 @@ var cat = {
     }]
 }
 
-// Fluffy has two friends, Grumpy and Lazy Bones. 
+// Fluffy has two friends, Grumpy and Lazy Bones.
 // 1. Assign the value of Grumpy's 2nd activity to the variable below.
 // 2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 
 // Code here
 
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -124,7 +159,11 @@ var myCar = {
 
 // Code here
 
-
+function recordCleaner() {
+  for(var i=0; i<myCar.accidents.length; i++) {
+    myCar.accidents[i].atFaultForAccident = false;
+  }
+}
 
 
 
@@ -135,14 +174,26 @@ var myCar = {
 // === PROBLEM 5 ==========
 
 // Below is an array of arrays. Use two for loops.
-// 1. Write a function called 'looper'. 
-// 2. 'looper' should loop over the arrays. 
+// 1. Write a function called 'looper'.
+// 2. 'looper' should loop over the arrays.
 // 3. If the number is odd, replace it with 'odd'.
 //    If the number is even, replace it with 'even'.
 // 4. Return the modified numsArr.
 
 var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
+function looper(arr) {
+  for(var i=0; i<arr.length; i++) {
+    for(var j=0; j<arr[i].length; j++) {
+      if(arr[i][j]%2 === 0 ) {
+        arr[i][j] = 'even';
+      }
+      else {
+        arr[i][j] = 'odd';
+      }
+    }
+  }
+  return arr;
+}
 
-
-
+looper(numsArr);
